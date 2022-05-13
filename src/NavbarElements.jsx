@@ -35,7 +35,6 @@ const NavbarElements = () => {
       <Nav.Link href="#deets">Kundservice</Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
         Mina sidor
-
       </Nav.Link>
     </Nav>
 
