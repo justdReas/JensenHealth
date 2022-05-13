@@ -31,7 +31,6 @@ const NavbarElements = () => {
       aria-describedby="basic-addon1"
     />
   </InputGroup>
-
     <Nav>
       <Nav.Link href="#deets">Kundservice</Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
