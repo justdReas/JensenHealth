@@ -1,23 +1,36 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Merriweather:ital,wght@1,700&family=Oleo+Script+Swash+Caps:wght@700&display=swap');
 
-body {
-  margin: 40px;
-}
+@import './basic.scss'
 
-.product {
-  cursor: pointer;
-  margin-bottom: 40px;
-}
 
-h1 {
-  margin-bottom: 40px;
-}
 
-.card h3 {
-  margin-top: 20px;
-}
 
-input,
-label {
-  width: 100%;
-}
+
+
+
+
+
+// @import "../node_modules/bootstrap/scss/bootstrap";
+
+// body {
+//   margin: 40px;
+// }
+
+// .product {
+//   cursor: pointer;
+//   margin-bottom: 40px;
+// }
+
+// h1 {
+//   margin-bottom: 40px;
+// }
+
+// .card h3 {
+//   margin-top: 20px;
+// }
+
+// input,
+// label {
+//   width: 100%;
+// }

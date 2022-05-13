@@ -6,11 +6,11 @@ const NavbarElements = () => {
 
   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
-  <Navbar.Brand href="#home">🤗Jensen Life 🏥 </Navbar.Brand>
+  <Navbar.Brand href="/home">🤗Jensen Health 🏥 </Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/home">Home</Nav.Link>
       <Nav.Link href="/list">ProductList</Nav.Link>
         <Nav.Link href="/product-edit/:id">ProductEdit</Nav.Link>
       <Nav.Link href="/shopping-cart">ShoppingCart</Nav.Link>

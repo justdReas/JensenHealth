@@ -13,7 +13,9 @@ import './utilities/scrollBehavior';
 import ProductList from './ProductList';
 import ProductDetail from './ProductDetail';
 import ProductEdit from './ProductEdit';
-import ShoppingCart from './ShoppingCart'
+import ShoppingCart from './ShoppingCart';
+import Home from './Home';
+import NavbarElements from './NavbarElements';
 
 // Create classes used for fetching from the REST-api
 const { Product, Categorie: Category } = factory;
@@ -40,11 +42,21 @@ export default function App() {
   }, []);
 
   return s.products.length ? <Router>
+    <NavbarElements />
     <Routes>
-      <Route path="/" element={<ProductList />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/list" element={<ProductList />} />
       <Route path="/product-detail/:id" element={<ProductDetail />} />
       <Route path="/product-edit/:id" element={<ProductEdit />} />
       <Route path="/shopping-cart" element={<ShoppingCart />} />
     </Routes>
   </Router> : null;
 }
+
+
+
+
+
+
+
+
