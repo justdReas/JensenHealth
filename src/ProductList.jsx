@@ -32,7 +32,7 @@ export default function ProductList() {
             <p>{description}</p>
           </Col>
           <Col xxl="12">
-            <p><b>Price:</b> ${price}</p>
+            <p><b>Pris:</b> {price} Sek</p>
           </Col>
         </Card>
       </Row>
