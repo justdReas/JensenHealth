@@ -29,9 +29,9 @@ export default function MainNav() {
     />
   </InputGroup>
    
-      <Nav.Link href="#deets">Kundservice</Nav.Link>
+      <Nav.Link href="#deets">KundService</Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
-        Mina sidor
+        MinaSidor
 
           <i class='fa fa-cart-arrow-down blue-color'></i>
       </Nav.Link>
