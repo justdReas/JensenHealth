@@ -14,9 +14,9 @@ export default function MainNav() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <Link className="nav-link" to="/">Home</Link>
-          <Link className="nav-link" to="/product-list">Product List</Link>
-          <Link className="nav-link" to="/shopping-cart">Shopping Cart</Link>
-
+          <Link className="nav-link" to="/product-list">Product_List</Link>
+          <Link className="nav-link" to="/shopping-cart">Shopping_Cart</Link>
+          <Link className="nav-link" to="/search">Sök_Produkter</Link>
       
 
         <InputGroup className="mb-3">
@@ -27,17 +27,13 @@ export default function MainNav() {
       aria-label="Example text with button addon"
       aria-describedby="basic-addon1"
     />
-  </InputGroup>
-   
-      <Nav.Link href="#deets">KundService</Nav.Link>
+  </InputGroup> 
+      <Nav.Link href="#deets">Om_Oss</Nav.Link>
       <Nav.Link eventKey={2} href="#memes">
-        MinaSidor
+        FnQ
 
-          <i class='fa fa-cart-arrow-down blue-color'></i>
+      <i  class='fa fa-cart-arrow-down blue-color'></i>
       </Nav.Link>
- 
-
-
         </Nav>
       </Navbar.Collapse>
     </Container>
