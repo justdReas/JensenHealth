@@ -19,6 +19,8 @@ import ShoppingCart from './ShoppingCart';
 
 import Search from './Search'
 
+import ShoppingCart from './ShoppingCart'
+import BackOffice from './BackOffice'
 
 // Create classes used for fetching from the REST-api
 const { Product, Categorie: Category } = factory;
@@ -51,10 +53,11 @@ export default function App() {
         <Route path="/" element={<StartPage />} />
         <Route path="/product-list" element={<ProductList />} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
-        <Route path="/product-edit/:id" element={<ProductEdit />} />
+        <Route path="/BackOffice/:id" element={<ProductEdit />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />
     
       <Route path="/search" element={<Search />} />
+        <Route path="/BackOffice" element={<BackOffice />} />
       </Routes>
     </Router>
 }
