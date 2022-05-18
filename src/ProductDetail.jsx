@@ -93,6 +93,7 @@ export default function ProductDetail() {
             style={{ width: 100 }}
             className="float-end mt-1 me-3"
             type="number"
+            min="1"
             {...localState.bind("buyQuantity")}
           />
         </Col>
