@@ -22,7 +22,7 @@ export default function ShoppingCart() {
     <Container className="ShoppingCart">
       <Row>
         <Col>
-          <h1>Shopping cart</h1>
+          <h1>Inkorg</h1>
         </Col>
       </Row>
       <Row>
@@ -31,21 +31,16 @@ export default function ShoppingCart() {
             <table className="table">
               <thead>
                 <tr>
-                  <th>Product</th>
-                  <th className="text-end">Quantity</th>
+                  <th>Produkter</th>
+                  <th className="text-end">Kvantitet</th>
                   <th className="text-end">à</th>
                   <th className="text-end">Sum</th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
                 {s.cartContents.map((row, i) => (
                   <tr key={i}>
-                    <td
-                      style={{ cursor: "pointer" }}
-                      onClick={() => remove(row.product)}
-                    >
-                      🗑️
-                    </td>
                     <td>{row.product.name}</td>
                     <td className="text-end">
                       <input
@@ -63,13 +58,22 @@ export default function ShoppingCart() {
                     <td className="text-end" style={{ width: 100 }}>
                       {sweFormat(row.quantity * row.product.price)}
                     </td>
+                    <th
+                      style={{ cursor: "pointer" }}
+                      onClick={() => remove(row.product)}
+                      className="text-center"
+                    >
+                      🗑️
+                    </th>
                   </tr>
                 ))}
                 <tr className="fw-bold">
-                  <td>Sum</td>
-                  <td colSpan={4} className="text-end">
+                  <th>Summa</th>
+
+                  <th colSpan={4} className="text-end">
                     {sweFormat(totalSum)}
-                  </td>
+                  </th>
+                  <th></th>
                 </tr>
               </tbody>
             </table>
@@ -80,18 +84,18 @@ export default function ShoppingCart() {
       </Row>
       <Row>
         <Col>
-          <Link className="float-end text-decoration-none" to={`/product-list`}>
+          <Link className="float-end text-decoration-none" to={``}>
             <button type="button" className="btn btn-primary">
-              Back to list
+              Betala
             </button>
           </Link>
           {s.cartContents.length ? (
             <button
               onClick={empty}
               type="button"
-              className="btn btn-primary float-end me-3"
+              className="btn btn-primary float-end me-3 bg-danger"
             >
-              Empty cart
+              Töm Korg
             </button>
           ) : (
             <></>
