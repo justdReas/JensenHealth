@@ -63,7 +63,8 @@ export default function ProductDetail() {
     </Col></Row>
     <Row><Col className="mt-2">
       <button type="button" onClick={buy} className="btn btn-primary float-end">Buy</button>
-      <input style={{ width: 100 }} className="float-end mt-1 me-3" type="number" {...localState.bind('buyQuantity')} />
+      <input style={{ width: 100 }} className="float-end mt-1 me-3" type="number" min="1" {...localState.bind('buyQuantity')} />
     </Col></Row>
   </Container>
 }
+
