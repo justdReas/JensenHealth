@@ -7,6 +7,7 @@ import { sweFormat } from './utilities/currencyFormatter';
 import { missingImage } from './utilities/handleMissingImage';
 
 
+
 export default function BackOffice() {
 
   scrollRestore();
@@ -19,6 +20,7 @@ export default function BackOffice() {
   }
 
   return <Container className="productList">
+      
     <Row><Col><h1>Products</h1></Col></Row>
     <Row className="mb-3"><Col><CategorySelect showAllOption bindTo={[s, 'chosenCategoryId']} /></Col></Row>
     {s.products.filter(product =>
