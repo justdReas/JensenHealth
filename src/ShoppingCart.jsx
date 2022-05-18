@@ -34,7 +34,7 @@ export default function ShoppingCart() {
                   <th>Produkter</th>
                   <th className="text-end">Kvantitet</th>
                   <th className="text-end">à</th>
-                  <th className="text-end">Sum</th>
+                  <th className="text-end">Summa</th>
                   <th></th>
                 </tr>
               </thead>
@@ -68,7 +68,7 @@ export default function ShoppingCart() {
                   </tr>
                 ))}
                 <tr className="fw-bold">
-                  <th>Summa</th>
+                  <td>Totalsumma inkl. moms</td>
 
                   <th colSpan={4} className="text-end">
                     {sweFormat(totalSum)}
