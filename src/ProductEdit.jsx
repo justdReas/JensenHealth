@@ -1,6 +1,6 @@
 import { useStates } from './utilities/states';
 import { Container, Row, Col } from 'react-bootstrap';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import CategorySelect from './CategorySelect';
 
 export default function ProductDetail() {
@@ -21,6 +21,16 @@ export default function ProductDetail() {
   }
 
   return <Container className="productList">
+    <Row>
+        <Col>
+          <Link to={`/BackOffice`}>
+            <button type="button" className="my-4 btn btn-primary">
+              Back to list
+            </button>
+            <hr />
+          </Link>
+        </Col>
+      </Row>
     <Row><Col><h1>{name}</h1></Col></Row>
     <Row><Col><p>{description}</p></Col></Row>
     <Row><Col><p>Price: ${price}</p></Col></Row>
