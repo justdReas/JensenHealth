@@ -48,7 +48,7 @@ export default function ProductDetail() {
         <Col>
           <Link to={`/product-list`}>
             <button type="button" className="my-4 btn btn-primary">
-              Back to list
+              Tillbaka till listan
             </button>
             <hr />
           </Link>
@@ -61,7 +61,7 @@ export default function ProductDetail() {
       </Row>
       <Row className="mb-3">
         <Col>
-          <h4>Category: {categoryName}</h4>
+          <h5>Kategori: {categoryName}</h5>
         </Col>
       </Row>
       <Row>
@@ -77,7 +77,7 @@ export default function ProductDetail() {
       </Row>
       <Row>
         <Col>
-          <p>Price: {sweFormat(price)}</p>
+          <p>Pris: {sweFormat(price)}</p>
         </Col>
       </Row>
       <Row>
@@ -87,7 +87,7 @@ export default function ProductDetail() {
             onClick={buy}
             className="btn btn-primary float-end"
           >
-            Buy
+            Köp
           </button>
           <input
             style={{ width: 100 }}
