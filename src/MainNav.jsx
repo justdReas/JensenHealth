@@ -31,7 +31,7 @@ export default function MainNav() {
               Produkt Lista
             </Link>
             <Link className="nav-link" to="/shopping-cart">
-              <i class="fa fa-cart-arrow-down blue-color"></i>
+              <i className="fa fa-cart-arrow-down blue-color"></i>
               Inkorg
             </Link>
             {/* <Link className="nav-link" to="/search">
