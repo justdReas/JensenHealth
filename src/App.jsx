@@ -20,12 +20,17 @@ import BackOffice from "./BackOffice";
 // Create classes used for fetching from the REST-api
 const { Product, Categorie: Category } = factory;
 
+let oldSearchTerm = '';
+
 export default function App() {
+  
   let s = useStates("main", {
-    products: [],
+    allProducts: [],
+    products: [], // products filtered by search term
     categories: [],
     chosenCategoryId: 0,
     cartContents: [],
+    searchTerm: ''
   });
 
   useEffect(() => {
@@ -34,18 +39,30 @@ export default function App() {
       s.categories = await Category.find();
       // get the products from the db
       s.products = await Product.find();
+      s.allProducts = s.products.slice();
       // initilize the shopping cart
       // (this provides local storage of cartContents)
       init(s, "cartContents");
     })();
   }, []);
 
-  return s.products.length === 0 ? null : (
+  // Filtering
+  useEffect(() => {
+    // Prevent endless loop, do nothing if
+    // the search term has not changed
+    if(s.searchTerm === oldSearchTerm){ return;}
+    oldSearchTerm = s.searchTerm;
+    // search / filter
+    s.products = s.allProducts.filter(x => x.name.toLowerCase()
+      .includes((s.searchTerm +'').toLowerCase()));
+  }, [s]);
+
+  return s.allProducts.length === 0 ? null : (
     <Router>
       <MainNav />
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/product-list" element={<ProductList />} />
+        <Route path="/product-list" element={<ProductList/>} />
         <Route path="/product-detail/:id" element={<ProductDetail />} />
         <Route path="/BackOffice/:id" element={<ProductEdit />} />
         <Route path="/shopping-cart" element={<ShoppingCart />} />

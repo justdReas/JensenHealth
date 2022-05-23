@@ -1,103 +1,31 @@
-import { useStates } from "./utilities/states";
-import { Container, Row, Col } from "react-bootstrap";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { add } from "./utilities/shoppingCartLogic";
-import { sweFormat } from "./utilities/currencyFormatter";
-import { useEffect } from "react";
-import { missingImage } from "./utilities/handleMissingImage";
+import img2 from "/images/products/2.jpg";
+import img3 from "/images/products/3.jpg";
+import img4 from "/images/products/4.jpg";
 
-export default function ProductDetail() {
-  let s = useStates("main");
+const ProductData = {
+  productData: [
+    {
+      id: 2,
+      img: img2,
+      name: "Jensen Royal Kaffe 100 Gram Limited Edition",
+      desc: 'Gustav Vasas favorit Kaff eftersom det hette "Royal´s Coffee". Du också, njut av en stund som kunglighet med Jensen Royal kaffe.OBS! Vi tar 100% ansvar för kaffet som smakar så gott så att du kommer att vilja beställa igen.',
+      pris: "500 sek",
+    },
+    {
+      id: 3,
+      img: img3,
+      name: "Drömmen om Jensen Vitamin D 70 Kaps",
+      desc: "Känn känslan av flyga i den magiska mattan med Aldin multi vitaminer !",
+      pris: "250 sek",
+    },
+    {
+      id: 4,
+      img: img4,
+      name: "Aladin flyggande multi vitaminer 50 Kaps",
+      desc: "abc",
+      pris: 300,
+    },
+  ],
+};
 
-  // A local state for this component
-  // with one property/state var - buyQuantity
-  let localState = useStates({
-    buyQuantity: 1,
-  });
-
-  // Set the buyQuantity to 1 when the component mounts / "page load"
-  useEffect(() => {
-    localState.buyQuantity = 1;
-  }, []);
-
-  // Find the product
-  let { id } = useParams();
-  let product = s.products.find((x) => x.id === +id);
-  if (!product) {
-    return null;
-  }
-
-  let { name, description, price, categoryId } = product;
-
-  // Find the category
-  let categoryName =
-    s.categories.find((category) => category.id === categoryId)?.name || "none";
-
-  let navigate = useNavigate();
-
-  function buy() {
-    // Add the product to the cart
-    add(product, localState.buyQuantity);
-    // Show the cart
-    navigate("/shopping-cart");
-  }
-
-  return (
-    <Container className="productList">
-      <Row>
-        <Col>
-          <Link to={`/product-list`}>
-            <button type="button" className="my-4 btn btn-primary">
-              Tillbaka till listan
-            </button>
-            <hr />
-          </Link>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <h1 className="mb-2">{name}</h1>
-        </Col>
-      </Row>
-      <Row className="mb-3">
-        <Col>
-          <h5>Kategori: {categoryName}</h5>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <img
-            onError={(event) => missingImage(event, name)}
-            className="float-end ms-3"
-            style={{ width: 250, height: 150, objectFit: "cover" }}
-            src={`/images/products/${id}.jpg`}
-          />
-          <p>{description}</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p>Pris: {sweFormat(price)}</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col className="mt-2">
-          <button
-            type="button"
-            onClick={buy}
-            className="btn btn-primary float-end"
-          >
-            Köp
-          </button>
-          <input
-            style={{ width: 100 }}
-            className="float-end mt-1 me-3"
-            type="number"
-            min="1"
-            {...localState.bind("buyQuantity")}
-          />
-        </Col>
-      </Row>
-    </Container>
-  );
-}
+export default ProductData;
