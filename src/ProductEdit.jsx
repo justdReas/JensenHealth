@@ -43,6 +43,16 @@ export default function ProductDetail() {
           <p>{description}</p>
         </Col>
       </Row>
+              <Col xxl="12">
+                <img
+                  onError={(event) => missingImage(event, name)}
+                  className="float-end ms-3"
+                  style={{ width: 250, height: 150, objectFit: "cover" }}
+                  src={`/images/products/${id}.jpg`}
+                />
+                <p>{description}</p>
+              </Col>
+              <Col xxl="12"></Col>
       <Row>
         <Col>
           <p>Price: ${price}</p>
