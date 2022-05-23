@@ -23,7 +23,7 @@ const ProductData = {
       img: img4,
       name: "Aladin flyggande multi vitaminer 50 Kaps",
       desc: "abc",
-      pris: 300,
+      pris: "300 sek",
     },
   ],
 };
