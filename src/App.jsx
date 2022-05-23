@@ -17,8 +17,6 @@ import Search from "./Search";
 import ShoppingCart from "./ShoppingCart";
 import BackOffice from "./BackOffice";
 
-export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS"
-
 // Create classes used for fetching from the REST-api
 const { Product, Categorie: Category } = factory;
 
