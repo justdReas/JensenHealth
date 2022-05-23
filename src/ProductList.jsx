@@ -1,10 +1,11 @@
 import { useStates } from "./utilities/states";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { scrollRestore } from "./utilities/scrollBehavior";
 import CategorySelect from "./CategorySelect";
 import { sweFormat } from "./utilities/currencyFormatter";
 import { missingImage } from "./utilities/handleMissingImage";
+import ReactDOM from "react-dom/client";
 
 export default function ProductList() {
   scrollRestore();
@@ -21,6 +22,11 @@ export default function ProductList() {
       <Row>
         <Col>
           <h1>Produkter</h1>
+        </Col>
+      </Row>
+      <Row className="mb-3">
+        <Col>
+          <Button> Testknapp</Button>
         </Col>
       </Row>
       <Row className="mb-3">

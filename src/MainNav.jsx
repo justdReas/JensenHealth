@@ -1,11 +1,4 @@
-import {
-  Container,
-  Navbar,
-  Nav,
-  InputGroup,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
@@ -25,18 +18,20 @@ export default function MainNav() {
         <Navbar.Collapse id="basic-navbar-nav" className="col-md-8">
           <Nav className="ms-auto align-items-center text-center">
             <Link className="nav-link" to="/">
+              <i class="fa fa-home"></i>
               Hem
             </Link>
             <Link className="nav-link" to="/product-list">
-              Produkt Lista
+              <i class="fa fa-shopping-bag"></i>
+              Produkter
             </Link>
             <Link className="nav-link" to="/shopping-cart">
               <i className="fa fa-cart-arrow-down blue-color"></i>
               Inkorg
             </Link>
-            {/* <Link className="nav-link" to="/search">
+            <Link className="nav-link" to="/search">
               Sök_Produkter
-            </Link> */}
+            </Link>
 
             <SearchBar />
 
