@@ -13,6 +13,12 @@ export default function MainNav() {
   // What is the smartest way to recreate that functionality
   // (adding an active CSS class to the active menu choice)
 
+  const onChange = ( e, {value}) => {
+    const searchText = value.trim().replace(/" "/g, "");
+
+    searchProducts(searchText)(dispatch);
+  };
+
   return (
     <Navbar bg="dark" variant="dark" expand="lg" className="mb-4">
       <Container>
@@ -36,15 +42,16 @@ export default function MainNav() {
               Sök_Produkter
             </Link>
 
+
             <InputGroup className="mb-3">
-              <Button variant="outline-secondary" id="button-addon1">
-                Search<kbd></kbd>
+              <Button placeholder= "Search" onChange={onChange} variant="outline-secondary" id="button-addon1 placeholder">
+                Search
               </Button>
               <FormControl
                 aria-label="Example text with button addon"
                 aria-describedby="basic-addon1"
               />
-            </InputGroup>
+            </InputGroup> 
             <Nav.Link href="#deets">Om Oss</Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               FnQ
