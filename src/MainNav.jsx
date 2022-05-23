@@ -30,7 +30,6 @@ export default function MainNav() {
               Inkorg
             </Link>
             <Link className="nav-link" to="/search">
-              Sök_Produkter
             </Link>
 
             <SearchBar />
