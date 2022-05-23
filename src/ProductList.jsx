@@ -48,11 +48,9 @@ export default function ProductList() {
                 <p>{description}</p>
               </Col>
               <Col xxl="12">
-                <p>
-                  <h4>
-                    <b>Pris:</b> {sweFormat(price)}
-                  </h4>
-                </p>
+                <h4>
+                  <b>Pris:</b> {sweFormat(price)}
+                </h4>
               </Col>
             </Card>
           </Row>
