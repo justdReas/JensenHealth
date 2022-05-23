@@ -18,11 +18,11 @@ export default function MainNav() {
         <Navbar.Collapse id="basic-navbar-nav" className="col-md-8">
           <Nav className="ms-auto align-items-center text-center">
             <Link className="nav-link" to="/">
-              <i class="fa fa-home"></i>
+              <i className="fa fa-home"></i>
               Hem
             </Link>
             <Link className="nav-link" to="/product-list">
-              <i class="fa fa-shopping-bag"></i>
+              <i className="fa fa-shopping-bag"></i>
               Produkter
             </Link>
             <Link className="nav-link" to="/shopping-cart">
