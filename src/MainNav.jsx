@@ -1,5 +1,6 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import {useStates} from './utilities/states';
 
 import SearchBar from "./SearchBar";
 
@@ -7,6 +8,15 @@ export default function MainNav() {
   // React Router DOM v6 got rid of the NavLink component
   // What is the smartest way to recreate that functionality
   // (adding an active CSS class to the active menu choice)
+
+  let s = useStates('main');
+  
+  let totalNumberOfProducts = 0;
+  for(let row of s.cartContents){
+    totalNumberOfProducts += row.quantity;
+  }
+
+  // let totalNumberOfProducts = s.cartContents.reduce((acc,{quantity}) => quantity + acc, 0);
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
@@ -27,7 +37,7 @@ export default function MainNav() {
             </Link>
             <Link className="nav-link" to="/shopping-cart">
               <i className="fa fa-cart-arrow-down blue-color"></i>
-              Inkorg
+              Kundvagn&nbsp;({totalNumberOfProducts})
             </Link>
             <Link className="nav-link" to="/search">
             </Link>

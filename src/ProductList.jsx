@@ -1,4 +1,5 @@
 import { useStates } from "./utilities/states";
+import {useState} from 'react';
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { scrollRestore } from "./utilities/scrollBehavior";
@@ -12,6 +13,8 @@ export default function ProductList() {
 
   let s = useStates("main");
   let navigate = useNavigate();
+
+  const [sortOrder, setSortOrder] = useState('priceAsc');
 
   function showDetail(id) {
     navigate(`/product-detail/${id}`);
@@ -33,13 +36,30 @@ export default function ProductList() {
         <Col>
           <CategorySelect showAllOption bindTo={[s, "chosenCategoryId"]} />
         </Col>
+        <Col>
+          Sortera: <select value={sortOrder} onChange={event => setSortOrder(event.target.value)}>
+            <option value="name">Namn</option>
+            <option value="priceAsc">Pris, stigande</option>
+            <option value="priceDesc">Pris, fallande</option>
+          </select>
+        </Col>
       </Row>
       {s.products
         .filter(
           (product) =>
             s.chosenCategoryId === 0 /*all*/ ||
             s.chosenCategoryId === product.categoryId
-        )
+        ).sort((a,b) => {
+          if(sortOrder === 'name'){
+            return a.name > b.name ? 1 : - 1;
+          }
+          if(sortOrder === 'priceAsc'){
+            return a.price - b.price ? 1 : - 1;
+          }
+          if(sortOrder === 'priceDesc'){
+            return a.price < b.price ? 1 : - 1;
+          }
+        })
         .map(({ id, name, description, price }) => (
           <Row className="product" key={id} onClick={() => showDetail(id)}>
             <Card>
