@@ -1,3 +1,4 @@
+
 import { useStates } from "./utilities/states";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams, useNavigate, Link } from "react-router-dom";
@@ -107,3 +108,8 @@ export default function ProductDetail() {
     </Container>
   );
 }
+
+
+
+
+
