@@ -78,7 +78,7 @@ export default function ShoppingCart() {
               </tbody>
             </table>
           ) : (
-            <p>The cart is empty...</p>
+            <p>Varukorgen är tom...</p>
           )}
         </Col>
       </Row>

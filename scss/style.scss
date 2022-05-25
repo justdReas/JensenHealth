@@ -31,3 +31,25 @@ label {
   height: 200px;
   width: 200px;
 }
+
+.search-suggestions {
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 10px;
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border: 1px solid #999;
+}
+
+.search-suggestions a {
+  cursor:pointer;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.search-suggestions a:hover {
+  background-color: blue;
+  color: white;
+}

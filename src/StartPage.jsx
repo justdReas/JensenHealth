@@ -22,4 +22,3 @@ export default function StartPage() {
         return <p>empty</p>
     }
 }
-

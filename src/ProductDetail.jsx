@@ -20,9 +20,12 @@ export default function ProductDetail() {
     localState.buyQuantity = 1;
   }, []);
 
+
+  let navigate = useNavigate();
+
   // Find the product
   let { id } = useParams();
-  let product = s.products.find((x) => x.id === +id);
+  let product = s.allProducts.find((x) => x.id === +id);
   if (!product) {
     return null;
   }
@@ -32,8 +35,6 @@ export default function ProductDetail() {
   // Find the category
   let categoryName =
     s.categories.find((category) => category.id === categoryId)?.name || "none";
-
-  let navigate = useNavigate();
 
   function buy() {
     // Add the product to the cart
