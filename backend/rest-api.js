@@ -28,6 +28,20 @@ module.exports = function setupRESTapi(app, databaseConnection) {
   app.get("/api/tables", (req, res) => res.json(db.tables));
   app.get("/api/views", (req, res) => res.json(db.views));
 
+  app.get("/api/search-products/:searchterm", (req, res) => {
+    let searchterm = "%" + req.params.searchterm + "%";
+    runQuery(
+      "productsAndCategories",
+      req,
+      res,
+      { searchterm },
+      `
+      SELECT * FROM productsAndCategories
+      WHERE productName LIKE $searchterm
+    `
+    );
+  });
+
   for (let name of [...db.tables, ...db.views]) {
     app.get("/api/" + name, (req, res) => {
       runQuery(
