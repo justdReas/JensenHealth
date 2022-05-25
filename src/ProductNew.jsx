@@ -9,9 +9,9 @@ export default function ProductDetail() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  let product = s.products.find((x) => x.id === +id);
+  let product = s.products;
   if (!product) {
-    return;
+    return null;
   }
   let { name, description, price } = product;
 
@@ -46,7 +46,7 @@ export default function ProductDetail() {
             onError={(event) => missingImage(event, name)}
             className="float-end ms-3"
             style={{ width: 250, height: 150, objectFit: "cover" }}
-            src={`/images/products/${id}.jpg`}
+            /* src={`/images/products/${id}.jpg`} */
           />
         </Col>
       </Row>
@@ -94,9 +94,9 @@ export default function ProductDetail() {
             Pris:
             <input
               type="number"
-              currency="SWE"
+              value=""
               className="form-control"
-              {...product.bind("price")}
+              // {...product.bind("price")}
             />
           </label>
         </Col>

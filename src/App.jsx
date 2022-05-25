@@ -63,11 +63,11 @@ export default function App() {
       <MainNav />
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/product-list" element={<ProductList />} />
-        <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/produkt-lista" element={<ProductList />} />
+        <Route path="/produkt-detalj/:id" element={<ProductDetail />} />
         <Route path="/BackOffice/:id" element={<ProductEdit />} />
         <Route path="/BackOffice/new" element={<ProductNew />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/kundvagn" element={<ShoppingCart />} />
 
         <Route path="/BackOffice" element={<BackOffice />} />
       </Routes>

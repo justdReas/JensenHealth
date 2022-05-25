@@ -46,7 +46,7 @@ export default function ProductDetail() {
     <Container className="productList">
       <Row>
         <Col>
-          <Link to={`/product-list`}>
+          <Link to={`/produkt-lista`}>
             <button type="button" className="my-4 btn btn-primary">
               Tillbaka till listan
             </button>

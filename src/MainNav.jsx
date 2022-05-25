@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useStates } from "./utilities/states";
 
 import SearchBar from "./SearchBar";
+import { Button } from "react-bootstrap";
 
 export default function MainNav() {
   // React Router DOM v6 got rid of the NavLink component
@@ -27,16 +28,16 @@ export default function MainNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="col-md-8">
           <Nav className="ms-auto align-items-center text-center">
-            <Link className="nav-link" to="/">
-              <i className="fa fa-home"></i>
+            <Link className="nav-link text-white" to="/">
+              <i className="fa btn-dark fa-home"></i>
               Hem
             </Link>
-            <Link className="nav-link" to="/product-list">
-              <i className="fa fa-shopping-bag"></i>
+            <Link className="nav-link text-white" to="/produkt-lista">
+              <i className="fa btn-dark fa-shopping-bag"></i>
               Produkter
             </Link>
-            <Link className="nav-link" to="/shopping-cart">
-              <i className="fa fa-cart-arrow-down blue-color"></i>
+            <Link className="nav-link text-white" to="/kundvagn">
+              <i className="fa btn-dark fa-cart-arrow-down "></i>
               Kundvagn&nbsp;({totalNumberOfProducts})
             </Link>
             <Link className="nav-link" to="/search"></Link>
@@ -45,6 +46,13 @@ export default function MainNav() {
             {/* <Nav.Link eventKey={2} href="#memes">
               FnQ
             </Nav.Link> */}
+            <Link to={`/BackOffice`}>
+              <button
+                type="button"
+                className="btn btn-dark fa fa-asterisk"
+              ></button>
+              <hr />
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

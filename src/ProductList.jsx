@@ -16,7 +16,7 @@ export default function ProductList() {
   const [sortOrder, setSortOrder] = useState("sortera");
 
   function showDetail(id) {
-    navigate(`/product-detail/${id}`);
+    navigate(`/produkt-detalj/${id}`);
   }
 
   return (
@@ -28,7 +28,7 @@ export default function ProductList() {
       </Row>
       <Row className="mb-3">
         <Col>
-          Kategorier:{" "}
+          Kategorier:{""}
           <CategorySelect showAllOption bindTo={[s, "chosenCategoryId"]} />
         </Col>
         <Col>

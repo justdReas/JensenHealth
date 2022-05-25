@@ -30,7 +30,7 @@ export default function SearchBar() {
           </Link>
         ))}
       </div>
-      <InputGroup className="m-2">
+      <InputGroup className="m-2 ">
         <FormControl
           id="SearchBar"
           aria-label="Example text with button addon"
@@ -40,8 +40,8 @@ export default function SearchBar() {
           onBlur={() => setTimeout(() => setShowSearchSuggestions(false), 500)}
           {...s.bind("searchTerm")}
         />
-        <Button variant="outline-secondary" id="button-addon1">
-          Sök <i className="fa fa-search"></i>
+        <Button variant="outline-secondary text-white" id="button-addon1">
+          Sök <i className="fa fa-search text-white"></i>
         </Button>
       </InputGroup>
     </Container>
