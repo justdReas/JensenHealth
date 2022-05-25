@@ -28,7 +28,6 @@ export default function SearchBar() {
           {...s.bind('searchTerm')}
         />
         <Button variant="outline-secondary" id="button-addon1">
-          Sök <i class="fa fa-search"></i>
           Sök <i className="fa fa-search"></i>
         </Button>
       </InputGroup>

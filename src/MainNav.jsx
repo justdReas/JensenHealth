@@ -10,7 +10,7 @@ export default function MainNav() {
   // (adding an active CSS class to the active menu choice)
 
   let s = useStates('main');
-
+  
   let totalNumberOfProducts = 0;
   for(let row of s.cartContents){
     totalNumberOfProducts += row.quantity;
