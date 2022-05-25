@@ -14,7 +14,7 @@ export default function ProductList() {
   let s = useStates("main");
   let navigate = useNavigate();
 
-  const [sortOrder, setSortOrder] = useState('priceAsc');
+  const [sortOrder, setSortOrder] = useState('name');
 
   function showDetail(id) {
     navigate(`/product-detail/${id}`);
