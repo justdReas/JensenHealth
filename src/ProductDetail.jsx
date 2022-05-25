@@ -20,7 +20,6 @@ export default function ProductDetail() {
     localState.buyQuantity = 1;
   }, []);
 
-
   let navigate = useNavigate();
 
   // Find the product
@@ -40,7 +39,7 @@ export default function ProductDetail() {
     // Add the product to the cart
     add(product, localState.buyQuantity);
     // Show the cart
-    navigate("/shopping-cart");
+    // navigate("/shopping-cart");
   }
 
   return (

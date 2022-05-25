@@ -18,9 +18,9 @@ export default function BackOffice() {
   function showEdit(id) {
     navigate(`/BackOffice/${id}`);
   }
-  /* function newProduct() {
+  function newProduct() {
     navigate(`/BackOffice/new`);
-  } */
+  }
 
   return (
     <Container className="productList">

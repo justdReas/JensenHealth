@@ -9,9 +9,9 @@ export default function ProductDetail() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  let product = s.products.find();
+  let product = s.products.find((x) => x.id === +id);
   if (!product) {
-    return null;
+    return;
   }
   let { name, description, price } = product;
 
@@ -24,6 +24,7 @@ export default function ProductDetail() {
 
   return (
     <Container className="productList">
+      <h1>Test</h1>
       <Row>
         <Col>
           <Link to={`/BackOffice`}>
@@ -54,15 +55,6 @@ export default function ProductDetail() {
           <p>{description}</p>
         </Col>
       </Row>
-      <Col xxl="12">
-        <img
-          onError={(event) => missingImage(event, name)}
-          className="float-end ms-3"
-          style={{ width: 250, height: 150, objectFit: "cover" }}
-          src={`/images/products/${id}.jpg`}
-        />
-        <p>{description}</p>
-      </Col>
       <Col xxl="12"></Col>
       <Row>
         <Col>
