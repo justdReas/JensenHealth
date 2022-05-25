@@ -26,11 +26,8 @@ export default function MainNav() {
               Produkter
             </Link>
             <Link className="nav-link" to="/shopping-cart">
-              <i className="fa fa-cart-arrow-down blue-color"></i>
-              Inkorg
-            </Link>
-            <Link className="nav-link" to="/search">
-              Sök_Produkter
+              <i class="fa fa-cart-arrow-down"></i>
+              Varukorg
             </Link>
 
             <SearchBar />
