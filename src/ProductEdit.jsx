@@ -56,7 +56,7 @@ export default function ProductDetail() {
               <Col xxl="12"></Col>
       <Row>
         <Col>
-          <p>Price: ${price}</p>
+          <p>Price: {price} sek</p>
         </Col>
       </Row>
       <Row className="mt-4">
