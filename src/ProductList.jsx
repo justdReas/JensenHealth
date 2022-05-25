@@ -1,12 +1,11 @@
 import { useStates } from "./utilities/states";
-import {useState} from 'react';
+import { useState } from "react";
 import { Button, Container, Row, Col, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { scrollRestore } from "./utilities/scrollBehavior";
 import CategorySelect from "./CategorySelect";
 import { sweFormat } from "./utilities/currencyFormatter";
 import { missingImage } from "./utilities/handleMissingImage";
-import ReactDOM from "react-dom/client";
 
 export default function ProductList() {
   scrollRestore();
@@ -14,7 +13,7 @@ export default function ProductList() {
   let s = useStates("main");
   let navigate = useNavigate();
 
-  const [sortOrder, setSortOrder] = useState('priceAsc');
+  const [sortOrder, setSortOrder] = useState("sortera");
 
   function showDetail(id) {
     navigate(`/product-detail/${id}`);
@@ -32,8 +31,14 @@ export default function ProductList() {
           <CategorySelect showAllOption bindTo={[s, "chosenCategoryId"]} />
         </Col>
         <Col>
-          Sortera: <select value={sortOrder} onChange={event => setSortOrder(event.target.value)}>
-            <option value="name">Namn</option>
+          Sortera:{" "}
+          <select
+            value={sortOrder}
+            onChange={(event) => setSortOrder(event.target.value)}
+          >
+            <option value="alla">Alla</option>
+            <option value="nameAsc">Namn, stigande</option>
+            <option value="nameDesc">Namn, fallande</option>
             <option value="priceAsc">Pris, stigande</option>
             <option value="priceDesc">Pris, fallande</option>
           </select>
@@ -44,15 +49,21 @@ export default function ProductList() {
           (product) =>
             s.chosenCategoryId === 0 /*all*/ ||
             s.chosenCategoryId === product.categoryId
-        ).sort((a,b) => {
-          if(sortOrder === 'name'){
-            return a.name > b.name ? 1 : - 1;
+        )
+        .sort((a, b) => {
+          if (sortOrder === "alla") {
           }
-          if(sortOrder === 'priceAsc'){
-            return a.price - b.price ? 1 : - 1;
+          if (sortOrder === "nameAsc") {
+            return a.name > b.name ? 1 : -1;
           }
-          if(sortOrder === 'priceDesc'){
-            return a.price < b.price ? 1 : - 1;
+          if (sortOrder === "nameDesc") {
+            return a.name < b.name ? 1 : -1;
+          }
+          if (sortOrder === "priceAsc") {
+            return a.price > b.price ? 1 : -1;
+          }
+          if (sortOrder === "priceDesc") {
+            return a.price < b.price ? 1 : -1;
           }
         })
         .map(({ id, name, description, price }) => (

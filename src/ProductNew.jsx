@@ -9,7 +9,7 @@ export default function ProductDetail() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  let product = s.products.find((x) => x.id === +id);
+  let product = s.products.find();
   if (!product) {
     return null;
   }
