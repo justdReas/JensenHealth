@@ -28,6 +28,7 @@ export default function ProductList() {
       </Row>
       <Row className="mb-3">
         <Col>
+          Kategorier:{" "}
           <CategorySelect showAllOption bindTo={[s, "chosenCategoryId"]} />
         </Col>
         <Col>
