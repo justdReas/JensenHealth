@@ -49,7 +49,7 @@ export default function ProductList() {
             return a.name > b.name ? 1 : - 1;
           }
           if(sortOrder === 'priceAsc'){
-            return a.price - b.price ? 1 : - 1;
+            return a.price > b.price ? 1 : - 1;
           }
           if(sortOrder === 'priceDesc'){
             return a.price < b.price ? 1 : - 1;
