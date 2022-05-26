@@ -2,7 +2,6 @@ import { useStates } from "./utilities/states";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import CategorySelect from "./CategorySelect";
-import {useState,useRef} from "react";
 
 export default function ProductDetail() {
   let s = useStates("main");
@@ -21,12 +20,6 @@ export default function ProductDetail() {
     // Navigate to detail page
     navigate(`/backoffice/`);
   }
-    const {response, setResponse} = useState("")
-    const selectedFile = useRef()
-
-    const uploader = async () => { 
-       console.log(selectedFile.current.files);   
-  };
   return (
     <Container className="productList">
       <Row>
@@ -45,15 +38,7 @@ export default function ProductDetail() {
         </Col>
       </Row>
       <Row>
-        <Col>
-        <Row>
-          <Col>
-        
-
-                <input type="file" ref={selectedFile}/>
-                <button onClick={uploader}>Upload</button> 
-                </Col>
-                </Row>
+        <Col>      
         <img
           onError={(event) => missingImage(event, name)}
           className="float-end ms-3"
@@ -72,7 +57,6 @@ export default function ProductDetail() {
           <p>Price: ${price}</p>
         </Col>
       </Row>
-     
       <Row className="mt-4">
         <Col>
           <label>
