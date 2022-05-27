@@ -25,7 +25,7 @@ export default function SearchBar() {
         }}
       >
         {suggestions.map((product, i) => (
-          <Link key={i} to={"/product-detail/" + product.id}>
+          <Link key={i} to={"/produkt-detalj/" + product.id}>
             {product.name}
           </Link>
         ))}
