@@ -45,5 +45,6 @@ export default function SearchBar() {
         </Button>
       </InputGroup>
     </Container>
+    
   );
 }
