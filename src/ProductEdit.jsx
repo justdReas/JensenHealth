@@ -20,6 +20,7 @@ export default function ProductDetail() {
     // Navigate to detail page
     navigate(`/backoffice/`);
   }
+
   return (
     <Container className="productList">
       <Row>
