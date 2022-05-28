@@ -20,7 +20,7 @@ export default function MainNav() {
   // let totalNumberOfProducts = s.cartContents.reduce((acc,{quantity}) => quantity + acc, 0);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar fixed="top" bg="dark" variant="dark" expand="lg">
       <Container>
         <Navbar.Brand href="/" className="col-md-4">
           <h1>🤗Jensen Health 🏥 </h1>
