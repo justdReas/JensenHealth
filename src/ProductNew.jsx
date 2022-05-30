@@ -4,9 +4,9 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import CategorySelect from "./CategorySelect";
 import { sweFormat } from "./utilities/currencyFormatter";
 
-export default function ProductDetail() {
+export default function ProductNew() {
   let s = useStates("main");
-  let { id } = useParams();
+
   let navigate = useNavigate();
 
   let product = s.products;
@@ -94,7 +94,6 @@ export default function ProductDetail() {
             Pris:
             <input
               type="number"
-              value=""
               className="form-control"
               // {...product.bind("price")}
             />

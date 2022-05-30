@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useStates } from "./utilities/states";
 
 import SearchBar from "./SearchBar";
-import { Button } from "react-bootstrap";
 
 export default function MainNav() {
   // React Router DOM v6 got rid of the NavLink component
@@ -20,24 +19,24 @@ export default function MainNav() {
   // let totalNumberOfProducts = s.cartContents.reduce((acc,{quantity}) => quantity + acc, 0);
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg">
+    <Navbar className="fixed-top navbar-custom" expand="lg">
       <Container>
-        <Navbar.Brand href="/" className="col-md-4">
-          <h1>🤗Jensen Health 🏥 </h1>
+        <Navbar.Brand href="/" className="col-md-4 text-light">
+          <h1>🤗 Jensen Health 🏥 </h1>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="col-md-8">
           <Nav className="ms-auto align-items-center text-center">
             <Link className="nav-link text-white" to="/">
-              <i className="fa btn-dark fa-home"></i>
+              <i className="fa fa-home"></i>
               Hem
             </Link>
             <Link className="nav-link text-white" to="/produkt-lista">
-              <i className="fa btn-dark fa-shopping-bag"></i>
+              <i className="fa fa-shopping-bag"></i>
               Produkter
             </Link>
             <Link className="nav-link text-white" to="/kundvagn">
-              <i className="fa btn-dark fa-cart-arrow-down "></i>
+              <i className="fa fa-cart-arrow-down "></i>
               Kundvagn&nbsp;({totalNumberOfProducts})
             </Link>
             <Link className="nav-link" to="/search"></Link>
@@ -49,7 +48,7 @@ export default function MainNav() {
             <Link to={`/BackOffice`}>
               <button
                 type="button"
-                className="btn btn-dark fa fa-asterisk"
+                className="btn fa fa-asterisk text-light"
               ></button>
               <hr />
             </Link>
