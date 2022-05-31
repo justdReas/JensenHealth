@@ -9,7 +9,7 @@ export default function ProductDetail() {
   let { id } = useParams();
   let navigate = useNavigate();
 
-  let product = s.products;
+  let product = s.products.find((x) => x.id === +id);
   if (!product) {
     return null;
   }
@@ -19,7 +19,7 @@ export default function ProductDetail() {
     // Save to db
     await product.save();
     // Navigate to detail page
-    navigate(`/backoffice/`);
+    navigate(`/backoffice/new`);
   }
 
   return (
