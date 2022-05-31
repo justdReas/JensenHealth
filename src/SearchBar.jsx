@@ -2,6 +2,7 @@ import { Container, InputGroup, FormControl, Button } from "react-bootstrap";
 import { useStates } from "./utilities/states";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "../scss/style.scss";
 
 export default function SearchBar() {
   const [showSearchSuggestions, setShowSearchSuggestions] = useState(false);
@@ -34,13 +35,12 @@ export default function SearchBar() {
         <FormControl
           id="SearchBar"
           aria-label="Example text with button addon"
-          aria-describedby="basic-addon1"
           placeholder="Sök efter produkt..."
           onFocus={() => setShowSearchSuggestions(true)}
           onBlur={() => setTimeout(() => setShowSearchSuggestions(false), 500)}
           {...s.bind("searchTerm")}
         />
-        <Button variant="outline-secondary text-white" id="button-addon1">
+        <Button className="bg-danger">
           Sök <i className="fa fa-search text-white"></i>
         </Button>
       </InputGroup>
