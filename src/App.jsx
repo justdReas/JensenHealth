@@ -67,6 +67,7 @@ export default function App() {
         <Route path="/produkt-detalj/:id" element={<ProductDetail />} />
         <Route path="/BackOffice/:id" element={<ProductEdit />} />
         <Route path="/BackOffice/new" element={<ProductNew />} />
+        <Route path="/product-edit/:id" element={<ProductEdit />} />
         <Route path="/kundvagn" element={<ShoppingCart />} />
 
         <Route path="/BackOffice" element={<BackOffice />} />
