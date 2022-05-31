@@ -41,16 +41,11 @@ export default function MainNav() {
             </Link>
             <Link className="nav-link" to="/search"></Link>
             <SearchBar />
-            {/* <Nav.Link href="#deets">Om Oss</Nav.Link> */}
-            {/* <Nav.Link eventKey={2} href="#memes">
-              FnQ
-            </Nav.Link> */}
             <Link to={`/BackOffice`}>
               <button
                 type="button"
                 className="btn fa fa-asterisk text-light"
               ></button>
-              <hr />
             </Link>
           </Nav>
         </Navbar.Collapse>

@@ -77,7 +77,7 @@ export default function BackOffice() {
           }
         })
         .map(({ id, name, description, price }) => (
-          <Row className="product" key={id} onClick={() => showDetail(id)}>
+          <Row className="product" key={id} onClick={() => showEdit(id)}>
             <div className="card-custom">
               <Col xxl="12">
                 <h3>{name}</h3>
