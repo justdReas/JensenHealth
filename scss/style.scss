@@ -1,21 +1,22 @@
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 body {
-  margin: 40px;
+  padding-top: 100px;
 }
 
 .product {
   cursor: pointer;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 h1 {
+  padding-top: 20px;
   margin-bottom: 40px;
 }
 
-.card h3 {
-  margin-top: 20px;
-  background-color: rgb(137, 247, 137);
+.card-custom h3 {
+  padding: 8px;
+  color: white;
 }
 
 input,
@@ -37,22 +38,32 @@ label {
   margin-top: 50px;
   margin-left: 10px;
   background-color: white;
-  color: black;
   padding: 10px;
-  border: 1px solid #999;
+  border: 1px solid #557b83;
   z-index: 1;
 }
 
 .search-suggestions a {
   cursor: pointer;
+  padding: 6px;
   text-decoration: none;
-  color: black;
+  color: #557b83;
   display: block;
   z-index: 1;
 }
 
 .search-suggestions a:hover {
-  background-color: blue;
-  color: white;
   z-index: 1;
+  background-color: #39aea9;
+  color: white;
+}
+
+.navbar-custom {
+  background-color: #39aea9;
+}
+
+.card-custom {
+  border-radius: 12px 12px 0 0;
+  padding: 2px 0;
+  background-color: #39aea9;
 }

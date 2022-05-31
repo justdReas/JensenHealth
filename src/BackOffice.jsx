@@ -78,23 +78,28 @@ export default function BackOffice() {
         })
         .map(({ id, name, description, price }) => (
           <Row className="product" key={id} onClick={() => showEdit(id)}>
-            <Card>
+            <div className="card-custom">
               <Col xxl="12">
                 <h3>{name}</h3>
+              </Col>
+              <Row className="bg-light">
                 <img
+                  className="img-fluid row align-start"
                   onError={(event) => missingImage(event, name)}
-                  className="float-end ms-3"
-                  style={{ width: 250, height: 150, objectFit: "cover" }}
+                  style={{ width: 250, objectFit: "cover" }}
                   src={`/images/products/${id}.jpg`}
                 />
-                <p>{description}</p>
-              </Col>
-              <Col xxl="12">
-                <p>
-                  <b>Pris:</b> {sweFormat(price)}
-                </p>
-              </Col>
-            </Card>
+
+                <Row className="col-10 pt-3">
+                  <p>{description}</p>
+                  <Row className="text-end row align-items-end">
+                    <h4>
+                      <b>Pris:</b> {sweFormat(price)}
+                    </h4>
+                  </Row>
+                </Row>
+              </Row>
+            </div>
           </Row>
         ))}
     </Container>
