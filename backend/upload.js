@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = app => {
+    console.log('HEJ')
 
   // endpoint to handle formData uploads
   app.post('/api/upload', (req, res) => {

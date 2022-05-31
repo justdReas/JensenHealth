@@ -72,6 +72,7 @@ export default function ProductDetail() {
             style={{ width: 250, height: 150, objectFit: "cover" }}
             src={`/images/products/${id}.jpg`}
           />
+    
           <p>{description}</p>
         </Col>
       </Row>
