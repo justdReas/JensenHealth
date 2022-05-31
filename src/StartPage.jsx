@@ -11,13 +11,15 @@ export default function StartPage() {
     return (
       <Container className="StartPage">
         <Row>
-          <Link className="text-decoration-none" to="/produkt-lista">
+          <Link className="link-dark text-decoration-none" to="/produkt-lista">
             <h1>{home}</h1>
             <h2>
               {" "}
+              <br />
               Svensk Hälsokost & speciella vitaminer för IT- studenter och
               utvecklare!
             </h2>
+            <br />
             <Row className="pb-5">
               <Col>
                 <img

@@ -3,21 +3,28 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import CategorySelect from "./CategorySelect";
 import { sweFormat } from "./utilities/currencyFormatter";
+import { factory } from "./utilities/FetchHelper";
+
+const { Product } = factory;
 
 export default function ProductNew() {
-  let s = useStates("main");
-
+  let s = useStates({
+    product: new Product({
+      name: "",
+      description: "",
+      price: "",
+      categoryId: 1,
+    }),
+  });
+  let globals = useStates("main");
   let navigate = useNavigate();
 
-  let product = s.products;
-  if (!product) {
-    return null;
-  }
-  let { name, description, price } = product;
+  let { name, description, price } = s.product;
 
   async function save() {
     // Save to db
-    await product.save();
+    await s.product.save();
+    globals.products.push(s.product);
     // Navigate to detail page
     navigate(`/backoffice/`);
   }
@@ -65,7 +72,7 @@ export default function ProductNew() {
         <Col>
           <label>
             Kategori:&nbsp;
-            <CategorySelect bindTo={[product, "categoryId"]} />
+            <CategorySelect bindTo={[s.product, "categoryId"]} />
           </label>
         </Col>
       </Row>
@@ -73,7 +80,7 @@ export default function ProductNew() {
         <Col>
           <label className="mt-3">
             Namn:
-            <input className="form-control" {...product.bind("name")} />
+            <input className="form-control" {...s.product.bind("name")} />
           </label>
         </Col>
       </Row>
@@ -83,7 +90,7 @@ export default function ProductNew() {
             Beskrivning:
             <textarea
               className="form-control"
-              {...product.bind("description")}
+              {...s.product.bind("description")}
             />
           </label>
         </Col>
@@ -95,7 +102,7 @@ export default function ProductNew() {
             <input
               type="number"
               className="form-control"
-              // {...product.bind("price")}
+              {...s.product.bind("price")}
             />
           </label>
         </Col>

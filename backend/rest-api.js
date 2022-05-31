@@ -83,18 +83,7 @@ module.exports = function setupRESTapi(app, databaseConnection) {
     if (db.views.includes(name)) {
       continue;
     }
-    app.post("/api/" + name, (req, res) => {
-      runQuery(
-        name,
-        req,
-        res,
-        req.body,
-        `
-        INSERT INTO ${name} (${Object.keys(req.body)})
-        VALUES (${Object.keys(req.body).map((x) => "$" + x)})
-      `
-      );
-    });
+
     app.post("/api/" + name, (req, res) => {
       delete req.body.id;
       runQuery(
