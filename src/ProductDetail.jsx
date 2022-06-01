@@ -20,7 +20,6 @@ export default function ProductDetail() {
     localState.buyQuantity = 1;
   }, []);
 
-
   let navigate = useNavigate();
 
   // Find the product
@@ -40,14 +39,14 @@ export default function ProductDetail() {
     // Add the product to the cart
     add(product, localState.buyQuantity);
     // Show the cart
-    navigate("/shopping-cart");
+    // navigate("/shopping-cart");
   }
 
   return (
     <Container className="productList">
       <Row>
         <Col>
-          <Link to={`/product-list`}>
+          <Link to={`/produkt-lista`}>
             <button type="button" className="my-4 btn btn-primary">
               Tillbaka till listan
             </button>
@@ -73,6 +72,7 @@ export default function ProductDetail() {
             style={{ width: 250, height: 150, objectFit: "cover" }}
             src={`/images/products/${id}.jpg`}
           />
+    
           <p>{description}</p>
         </Col>
       </Row>

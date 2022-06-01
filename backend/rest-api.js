@@ -7,7 +7,7 @@ function runQuery(
   sqlForPreparedStatement,
   onlyOne = false
 ) {
-  console.log("parameters",parameters)
+  console.log("parameters", parameters);
   let result;
   try {
     result = db.run(sqlForPreparedStatement, parameters);
@@ -83,6 +83,7 @@ module.exports = function setupRESTapi(app, databaseConnection) {
     if (db.views.includes(name)) {
       continue;
     }
+
     app.post("/api/" + name, (req, res) => {
       delete req.body.id;
       runQuery(
@@ -139,11 +140,6 @@ module.exports = function setupRESTapi(app, databaseConnection) {
     }
   });
 };
-
-
-
-
-
 
 // let db;
 

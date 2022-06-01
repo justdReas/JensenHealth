@@ -5,14 +5,22 @@ import { useNavigate } from "react-router-dom";
 import { scrollRestore } from "./utilities/scrollBehavior";
 import CategorySelect from "./CategorySelect";
 import { sweFormat } from "./utilities/currencyFormatter";
+<<<<<<< HEAD
 import { missingImage } from "./utilities/handleMissingImage";
 
 export default function BackOffice() {
   scrollRestore();
+=======
+import { initializeMedia, captureImage, uploadImage } from './utilities/imageCapture';
+import { useState } from 'react';
+import { missingImage } from "./utilities/handleMissingImage";
+
+>>>>>>> c8fc9a6e472304fc765d8794da4dbc4537ddf8d9
 
   let s = useStates("main");
   let navigate = useNavigate();
 
+<<<<<<< HEAD
   const [sortOrder, setSortOrder] = useState("sortera");
 
   function showEdit(id) {
@@ -20,6 +28,41 @@ export default function BackOffice() {
   }
   function newProduct() {
     navigate(`/BackOffice/new`);
+=======
+  // a local state only for this component
+  let l = useStates({
+    captureMode: true,
+    replaceImage: false
+  });
+
+  // initialize media (start talking to camera)
+  // when the component loads
+  useState(() => {
+    initializeMedia();
+  }, []);
+
+  let product = s.products.find((x) => x.id === +id);
+  if (!product) {
+    return null;
+  }
+  let { name, description, price } = product;
+
+  async function save() {
+    // Save to db
+    await product.save();
+    // Upload image if the image should be replaced
+    l.replaceImage && await uploadImage(id);
+    // Navigate to detail page
+    navigate(`/product-detail/${id}`);
+  
+    // Navigate to detail page
+    navigate(`/backoffice/`);
+>>>>>>> c8fc9a6e472304fc765d8794da4dbc4537ddf8d9
+  }
+
+  function takeImage() {
+    captureImage();
+    l.captureMode = false;
   }
 
   return (
@@ -35,6 +78,7 @@ export default function BackOffice() {
           <CategorySelect showAllOption bindTo={[s, "chosenCategoryId"]} />
         </Col>
         <Col>
+<<<<<<< HEAD
           Sortera:{" "}
           <select
             value={sortOrder}
@@ -46,6 +90,30 @@ export default function BackOffice() {
             <option value="priceAsc">Pris, stigande</option>
             <option value="priceDesc">Pris, fallande</option>
           </select>
+=======
+          <img
+            onError={(event) => missingImage(event, name)}
+            className="float-end ms-3"
+            style={{ width: 250, height: 150, objectFit: "cover" }}
+            src={`/images/products/${id}.jpg`}
+          />
+          
+          <Container className="product-edit">
+      {/* Online */}
+      {l.replaceImage ?
+        <Row><Col>
+          <video style={{ display: l.captureMode ? 'block' : 'none' }} autoPlay></video>
+          <canvas width="320" height="240" style={{ display: !l.captureMode ? 'block' : 'none' }}></canvas>
+          <button className="btn btn-primary mt-3 mb-5" onClick={takeImage}>Capture</button>
+        </Col></Row> : <Row><Col>
+          <img src={`/images/products/${id}.jpg`} />
+          <button className="btn btn-primary mt-3 mb-5" onClick={() => l.replaceImage = true}>Replace image</button>
+        </Col></Row>}
+      
+      <button type="button" onClick={save} className="my-4 btn btn-primary float-end">Save</button>
+    </Container>
+
+>>>>>>> c8fc9a6e472304fc765d8794da4dbc4537ddf8d9
         </Col>
       </Row>
       <Row>
@@ -53,6 +121,7 @@ export default function BackOffice() {
           <Button onClick={() => newProduct()}>Lägg till ny product</Button>
         </Col>
       </Row>
+<<<<<<< HEAD
       {s.products
         .filter(
           (product) =>
@@ -96,6 +165,61 @@ export default function BackOffice() {
             </Card>
           </Row>
         ))}
+=======
+      <Col xxl="12"></Col>
+      <Row>
+        <Col>
+          <p>Pris: {sweFormat(price)} sek</p>
+        </Col>
+      </Row>
+      <Row className="mt-4">
+        <Col>
+          <label>
+            Kategori:&nbsp;
+            <CategorySelect bindTo={[product, "categoryId"]} />
+          </label>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <label className="mt-3">
+            Namn:
+            <input className="form-control" {...product.bind("name")} />
+          </label>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <label className="mt-3">
+            Beskrivning:
+            <textarea
+              className="form-control"
+              {...product.bind("description")}
+            />
+          </label>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
+          <label className="mt-3">
+            Pris:
+            <input
+              type="number"
+              currency="SWE"
+              className="form-control"
+              {...product.bind("price")}
+            />
+          </label>
+        </Col>
+      </Row>
+      <button
+        type="button"
+        onClick={save}
+        className="my-4 btn btn-primary float-end"
+      >
+        Spara
+      </button>
+>>>>>>> c8fc9a6e472304fc765d8794da4dbc4537ddf8d9
     </Container>
   );
 }

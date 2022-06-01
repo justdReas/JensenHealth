@@ -11,8 +11,7 @@ import StartPage from "./StartPage";
 import ProductList from "./ProductList";
 import ProductDetail from "./ProductDetail";
 import ProductEdit from "./ProductEdit";
-
-import Search from "./Search";
+import ProductNew from "./ProductNew";
 
 import ShoppingCart from "./ShoppingCart";
 import BackOffice from "./BackOffice";
@@ -20,17 +19,16 @@ import BackOffice from "./BackOffice";
 // Create classes used for fetching from the REST-api
 const { Product, Categorie: Category } = factory;
 
-let oldSearchTerm = '';
+let oldSearchTerm = "";
 
 export default function App() {
-  
   let s = useStates("main", {
     allProducts: [],
     products: [], // products filtered by search term
     categories: [],
     chosenCategoryId: 0,
     cartContents: [],
-    searchTerm: ''
+    searchTerm: "",
   });
 
   useEffect(() => {
@@ -50,11 +48,14 @@ export default function App() {
   useEffect(() => {
     // Prevent endless loop, do nothing if
     // the search term has not changed
-    if(s.searchTerm === oldSearchTerm){ return;}
+    if (s.searchTerm === oldSearchTerm) {
+      return;
+    }
     oldSearchTerm = s.searchTerm;
     // search / filter
-    s.products = s.allProducts.filter(x => x.name.toLowerCase()
-      .includes((s.searchTerm +'').toLowerCase()));
+    s.products = s.allProducts.filter((x) =>
+      x.name.toLowerCase().includes((s.searchTerm + "").toLowerCase())
+    );
   }, [s]);
 
   return s.allProducts.length === 0 ? null : (
@@ -62,12 +63,13 @@ export default function App() {
       <MainNav />
       <Routes>
         <Route path="/" element={<StartPage />} />
-        <Route path="/product-list" element={<ProductList/>} />
-        <Route path="/product-detail/:id" element={<ProductDetail />} />
+        <Route path="/produkt-lista" element={<ProductList />} />
+        <Route path="/produkt-detalj/:id" element={<ProductDetail />} />
         <Route path="/BackOffice/:id" element={<ProductEdit />} />
-        <Route path="/shopping-cart" element={<ShoppingCart />} />
+        <Route path="/BackOffice/new" element={<ProductNew />} />
+        <Route path="/product-edit/:id" element={<ProductEdit />} />
+        <Route path="/kundvagn" element={<ShoppingCart />} />
 
-        <Route path="/search" element={<Search />} />
         <Route path="/BackOffice" element={<BackOffice />} />
       </Routes>
     </Router>

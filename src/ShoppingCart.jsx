@@ -22,7 +22,7 @@ export default function ShoppingCart() {
     <Container className="ShoppingCart">
       <Row>
         <Col>
-          <h1>Inkorg</h1>
+          <h1>Varukorg</h1>
         </Col>
       </Row>
       <Row>
