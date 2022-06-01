@@ -82,14 +82,14 @@ export default function ProductList() {
                   src={`/images/products/${id}.jpg`}
                 />
 
-                <Row className="col-10 pt-3">
+                <Col>
                   <p>{description}</p>
-                  <Row className="text-end row align-items-end">
+                  <Col className="text-end bottom-column">
                     <h4>
                       <b>Pris:</b> {sweFormat(price)}
                     </h4>
-                  </Row>
-                </Row>
+                  </Col>
+                </Col>
               </Row>
             </div>
           </Row>
